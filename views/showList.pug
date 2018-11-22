@@ -1,0 +1,23 @@
+doctype html
+head
+    title Dobrodosli u UltimateTODO
+    h1 Dobrodosao #{korisnik}
+    p Evo tvoje liste zadataka:
+    ul
+        each i in taskovi
+            li= i
+
+
+
+    br
+    br
+    form(method='post' action='/showList')
+        | Dodaj novi task:
+        input(type='text' name='newtask')
+        br
+        br
+        input(type='submit' name='submit')
+    br
+    br
+    form(method='get' action='/showList/logout')
+        input(type='submit' name='submit' value='Odjavi se')

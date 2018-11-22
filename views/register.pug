@@ -1,0 +1,22 @@
+doctype html
+head
+    head
+        title Dobrodosli u UltimateTODO
+    h1 Register page
+    p UltimateTODO je vasa web aplikacija za ultimate handling daily-based taskova
+    p Ukoliko vec posjedujete racun, idite na
+        a(href='/') Login.
+    form(method='post' action='/register')
+        | Ime :
+        input(type='text' name='fname')
+        br
+        br
+        | Prezime :
+        input(type='text' name='lname')
+        br
+        br
+        | Lozinka :
+        input(type='password' name='pw')
+        br
+        br
+        input(type='submit' name='Login')

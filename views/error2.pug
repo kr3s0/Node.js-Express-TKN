@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    h1 Ne mozete pristupiti vasem racunu zato jer..
+    p #{informacija}
+    br
+    br
+    p Pokusajte ponovno,
+        a(href='/') Login
+    br
+    p ili se
+        a(href='/register') registrirajte
