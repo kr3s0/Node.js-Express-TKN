@@ -8,8 +8,16 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req,res,next) {
-    req = Database.checkDatabase(req);
-    res.redirect('/showList');
+    Database.checkDatabase(req,function(err,ime,id) {
+        if(err){
+            console.log('Nesto nije uredu');
+            res.render('error2',{informacija: 'Negdje je doslo do greske.'});
+        }
+        else {
+            req.session.user = {username: ime, broj: id};
+            res.redirect('/showList')
+        }
+    });
 });
 
 module.exports = router;
