@@ -2,27 +2,26 @@ var express = require('express');
 var router = express.Router();
 var Database = require('../biblioteka/BazaPodataka.js');
 
-router.get('/', function(req,res,next) {
-    Database.tasksForUser(req.session.user.broj,function(err,rez) {
-        if(err){
-            console.log('Neka greska:' + err);
-            res.render('error2',{informacija: 'Doslo je do neke greske pri ucitavanju taskova'});
-        }
-        else{
-            res.render('showList' , {korisnik: req.session.user.username , taskovi: rez});
-        }
-    })
+router.get('/', async function(req,res,next) {
+    try {
+        let niz = await Database.tasksForUser(req.session.user.broj);
+        res.render('showList' , {korisnik:req.session.user.ime , taskovi: niz});
+    }
+    catch (e) {
+        console.log(e);
+        res.render('error2', {informacija: 'Doslo je do neke greske pri ucitavanju taskova'});
+    }
 });
 
-router.post('/', function(req,res,next) {
-    Database.addTask(req.session.user.broj,req.body.newtask,function(nesto) {
-        if(nesto){
-            res.redirect('/showList');
-        }
-        else{
-            res.render('error2',{informacija: 'Nesto nije uredu pri dodavanju novog taska'});
-        }
-    });
+router.post('/', async function(req,res,next) {
+    try {
+        await Database.addTask(req.session.user.broj, req.body.newtask);
+        res.redirect('/showList');
+    }
+    catch (e) {
+        console.log(e);
+        res.render('error2', {informacija: 'Nesto nije uredu pri dodavanju novog taska'});
+    }
 });
 
 router.get('/logout', function(req,res,next) {
