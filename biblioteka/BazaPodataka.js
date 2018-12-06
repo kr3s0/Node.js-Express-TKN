@@ -2,7 +2,7 @@ const sqlite3 = require('sqlite3').verbose();
 
 exports.checkDatabase = function (req) {
     return new Promise((resolve, reject) => {
-        var db = new sqlite3.Database('D:\\Coding\\sqlite\\sqlite-tools-win32-x86-3250300\\nodeToDo.db',sqlite3.OPEN_READWRITE, (err) => {
+        let db = new sqlite3.Database('./biblioteka/nodeToDo.db', sqlite3.OPEN_READWRITE, (err) => {
             if(err){
                 console.error(err.message);
                 reject('Greska pri spajanju na bazu');
@@ -35,7 +35,7 @@ exports.checkDatabase = function (req) {
 
 exports.registerNewUser = function (req){
     return new Promise ( (resolve,reject) => {
-        var db = new sqlite3.Database('D:\\Coding\\sqlite\\sqlite-tools-win32-x86-3250300\\nodeToDo.db',sqlite3.OPEN_READWRITE, (err) => {
+        let db = new sqlite3.Database('./biblioteka/nodeToDo.db',sqlite3.OPEN_READWRITE, (err) => {
             if(err){
                 console.error(err.message);
                 reject(err.message);
@@ -76,7 +76,7 @@ exports.registerNewUser = function (req){
 
 exports.tasksForUser = function (broj) {
     return new Promise ( (resolve, reject) => {
-        var db = new sqlite3.Database('D:\\Coding\\sqlite\\sqlite-tools-win32-x86-3250300\\nodeToDo.db',sqlite3.OPEN_READWRITE, (err) => {
+        let db = new sqlite3.Database('./biblioteka/nodeToDo.db',sqlite3.OPEN_READWRITE, (err) => {
             if(err){
                 console.error(err.message);
                 reject(err.message);
@@ -106,7 +106,7 @@ exports.tasksForUser = function (broj) {
 
 exports.addTask = function (broj,newtask) {
     return new Promise((resolve,reject) => {
-        var db = new sqlite3.Database('D:\\Coding\\sqlite\\sqlite-tools-win32-x86-3250300\\nodeToDo.db',sqlite3.OPEN_READWRITE, (err) => {
+        let db = new sqlite3.Database('./biblioteka/nodeToDo.db',sqlite3.OPEN_READWRITE, (err) => {
             if(err){
                 console.error(err.message);
                 reject(err.message);

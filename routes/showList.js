@@ -17,6 +17,11 @@ router.post('/', async function(req,res,next) {
     try {
         await Database.addTask(req.session.user.broj, req.body.newtask);
         res.redirect('/showList');
+        //Umjesto res.redirect, koristit cemo AJAX poziv, tako da se stranice ne refresuje svaki put
+        //napisali bi posebno AJAX stranicu koja bi imala JS scriptu preko koje bi zapravo pozivali to sto nam treba
+        //takodjer, trebalo bi nam neka funkcija koja hendla ajax poziv, i vraca odgovarajuci JSON object (ako izaberemo da radimo sa JSON)
+        //za sami AJAX cemo koristiti JQuery;
+        //https://www.webucator.com/tutorial/learn-ajax/ajax-basics.cfm
     }
     catch (e) {
         console.log(e);
