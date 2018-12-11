@@ -1,0 +1,41 @@
+doctype html
+html(lang='en')
+    head
+        link#bootstrap-css(href='//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css', rel='stylesheet')
+        link(rel='shortcut icon', href='images/favicon.ico', type='image/x-icon')
+        link(rel='stylesheet', href='stylesheets/showList2CSS.css')
+        script(src='//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
+        script(src='//code.jquery.com/jquery-1.11.1.min.js')
+        // ---- Include the above in your HEAD tag --------
+        script(type='text/javascript', src='//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js')
+        title To-Do App!
+    body
+        .container
+            .row
+                .col-md-6
+                    .todolist.not-done
+                        h1 Hello #{korisnik}
+                        form(method='POST' action='/showList')
+                            input.form-control.add-todo(type='text', name='newtask', placeholder='Unesi task')
+                            input#checkAll.btn.btn-success(type='submit', value='Dodaj')
+                        hr
+                        ul#sortable.list-unstyled
+                            each i in taskovi
+                                .checkbox
+                                    label
+                                        input(type='checkbox', value='')
+                                        li.ui-state-default= i
+                                hr
+                        .todo-footer
+                            strong
+                                span.count-todos
+                            |  Items Left:
+                            |   #{taskovi.length}
+                .col-md-6
+                    .todolist
+                        h1 Already Done
+                        ul#done-items.list-unstyled
+                            li
+                                | Some item
+                                button.remove-item.btn.btn-default.btn-xs.pull-right
+                                    span.glyphicon.glyphicon-remove

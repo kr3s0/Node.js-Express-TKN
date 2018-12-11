@@ -1,0 +1,15 @@
+body {
+    background: linear-gradient(to top, lightgreen, white);
+}
+
+input.form-control:focus {
+    box-shadow: 0 0 20px forestgreen;
+}
+
+img.mb-4 {
+    margin-left: 105px;
+}
+
+button.btn.btn-lg.btn-primary.btn-block {
+    background-color: forestgreen;
+}

@@ -4,7 +4,7 @@ var Database = require('../biblioteka/BazaPodataka.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('ToDoWelcome', { title: 'Express' });
+  res.render('ToDoWelcome2', { title: 'Express' });
 });
 
 //Deklarisemo async callback funckiju koja ce se pozvati pri dospjecu post rekvesta;

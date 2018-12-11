@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 var Database = require('../biblioteka/BazaPodataka.js');
 
 router.get('/', function(req,res,next) {
-   res.render('register');
+   res.render('register2');
 });
 
 router.post('/', async function(req,res,next) {

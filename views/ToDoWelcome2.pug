@@ -1,0 +1,55 @@
+doctype html
+html(lang='en')
+    head
+        // Required meta tags
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        link(rel='shortcut icon', href='images/favicon.ico', type='image/x-icon')
+        // Bootstrap CSS
+        link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css', integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO', crossorigin='anonymous')
+        link(rel='stylesheet', href='https://getbootstrap.com/docs/4.1/examples/sign-in/signin.css')
+        link(rel='stylesheet', href='stylesheets/ToDoWelcome2CSS.css')
+        script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', integrity='sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49', crossorigin='anonymous')
+        script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js', integrity='sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy', crossorigin='anonymous')
+        script.
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function () {
+                'use strict';
+                window.addEventListener('load', function () {
+                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                    var forms = document.getElementsByClassName('needs-validation');
+                    // Loop over them and prevent submission
+                    var validation = Array.prototype.filter.call(forms, function (form) {
+                        form.addEventListener('submit', function (event) {
+                            if (form.checkValidity() === false) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add('was-validated');
+                        }, false);
+                    });
+                }, false);
+            })();
+        title To-Do App!
+    body
+        form.form-signin.needs-validation(method='POST' action='/' novalidate='')
+            img.mb-4(src='images/Logo.png', alt='Logo', width='72', height='72')
+            h1.h3.mb-3.font-weight-normal Prijavite se
+            label.sr-only(for='inputEmail') Email address
+            input#inputEmail.form-control(type='text', placeholder='Username', name='fname', required='', autofocus='')
+            .invalid-feedback
+                | Please provide a valid username.
+            label.sr-only(for='inputPassword') Password
+            input#inputPassword.form-control(type='password', name='pw', placeholder='Password', required='')
+            .invalid-feedback
+                | Please provide a valid password.
+            .checkbox.mb-3
+                label
+                    input(type='checkbox', value='remember-me')
+                    |  Remember me
+            button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign in
+            p.mt-5.mb-3.text-muted Nemaš račun?
+                a(href='/register')  Registriraj se.
+
+
